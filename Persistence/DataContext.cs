@@ -14,6 +14,7 @@ namespace Persistence
 
         }
 
+        //Activities in the DataBase
         public DbSet<Activity> Activities { get; set; }
     }
 }
