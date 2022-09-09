@@ -26,20 +26,20 @@ namespace Application.Activities
 
             public async Task<List<Activity>> Handle(Query request, CancellationToken cancellationToken)
             {
-                try 
-                {
-                    for(var i = 0; 0<10;i++)
-                    {
-                        cancellationToken.ThrowIfCancellationRequested();
-                        await Task.Delay(1000, cancellationToken);
-                        this.logger.LogInformation($"task {i} has completed");
-                    }
+                // try 
+                // {
+                //     for(var i = 0; 0<10;i++)
+                //     {
+                //         cancellationToken.ThrowIfCancellationRequested();
+                //         await Task.Delay(1000, cancellationToken);
+                //         this.logger.LogInformation($"task {i} has completed");
+                //     }
                     
-                }
-                catch(Exception ex)
-                {
-                    this.logger.LogInformation("Task was Cancelled");
-                }
+                // }
+                // catch(Exception ex)
+                // {
+                //     this.logger.LogInformation("Task was Cancelled");
+                // }
                 return await _context.Activities.ToListAsync();
             }
         }
