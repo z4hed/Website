@@ -15,6 +15,8 @@ using Microsoft.EntityFrameworkCore;
 using Persistence;
 using Application.Activities;
 using MediatR;
+using Application.Core;
+using API.Extensions;
 
 namespace API
 {
@@ -32,23 +34,7 @@ namespace API
         {
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });
-            });
-            services.AddDbContext<DataContext>(opt =>
-            {
-                opt.UseSqlite(Config.GetConnectionString("DefaultConnection"));
-            });
-            services.AddCors(opt => 
-            {
-                opt.AddPolicy("Policy", policy =>
-                {
-                    policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
-                });
-            });
-            services.AddMediatR(typeof(List.Handler).Assembly);
-
+            services.AddApplicationServices(this.Config);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
