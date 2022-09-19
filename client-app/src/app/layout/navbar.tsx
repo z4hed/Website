@@ -8,7 +8,7 @@ export default function NavBar() {
         <Menu inverted fixed='top'>
             <Container>
                 <Menu.Item header>
-                    <img src="/assets/" alt="" style={{marginRight}}></img>
+                    <img src="/assets/" alt="" style={{marginRight: 10}}></img>
                     Reactivities
                 </Menu.Item>
                 <Menu.Item name='Activities'></Menu.Item>
